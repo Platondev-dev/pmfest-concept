@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ПМFest — концепт сайту</title>
+<meta name="description" content="Концепт лендингу для серії вечірок ПМFest. Демо для портфоліо, неофіційний сайт.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Rubik:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a0b1f; --pink:#ff5fa2; --pink2:#ff9cc7; --peach:#ffb38a; --lilac:#b48cff; --violet:#5a2a82;
+    --cream:#fff4f8; --line:rgba(26,11,31,.14); --white:#fff;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; background:var(--cream); }
+  body { margin:0; background:var(--cream); color:var(--ink); font-family:'Rubik', sans-serif; font-size:16px; line-height:1.55; overflow-x:hidden; }
+  a { color:inherit; }
+  img { max-width:100%; }
+  .wrap { max-width:1160px; margin:0 auto; padding:0 20px; }
+  .hand { font-family:'Caveat', cursive; font-weight:700; }
+  .display { font-family:'Unbounded', sans-serif; font-weight:900; letter-spacing:-.02em; line-height:.95; }
+
+  /* concept ribbon */
+  .concept {
+    position:sticky; top:0; z-index:50; background:var(--ink); color:var(--cream);
+    font-size:12px; letter-spacing:.12em; text-transform:uppercase; text-align:center; padding:8px 12px;
+  }
+  .concept b { color:var(--pink2); }
+
+  /* nav */
+  nav { position:absolute; left:0; right:0; top:36px; z-index:10; }
+  nav .wrap { display:flex; justify-content:space-between; align-items:center; height:64px; }
+  .logo { font-family:'Unbounded'; font-weight:900; font-size:20px; color:var(--white); text-decoration:none; }
+  .logo span { color:var(--ink); background:var(--white); padding:0 6px; margin-left:2px; border-radius:4px; }
+  nav ul { display:flex; gap:26px; list-style:none; margin:0; padding:0; font-size:14px; font-weight:500; color:var(--white); }
+  nav ul a { text-decoration:none; opacity:.9; }
+  nav ul a:hover { opacity:1; text-decoration:underline; }
+
+  /* hero */
+  .hero {
+    position:relative; min-height:clamp(680px, 100vh, 980px); min-height:clamp(680px, 100svh, 980px); color:var(--white); overflow:hidden;
+    background:linear-gradient(180deg, #2b0f4a 0%, #6b2a8c 26%, #d9478f 52%, #ff7f8f 68%, #ffb38a 82%, #ffd9a8 100%);
+    display:flex; align-items:center;
+  }
+  .sun {
+    position:absolute; left:50%; bottom:15%; width:min(420px, 90vw); aspect-ratio:1; transform:translateX(-50%);
+    border-radius:50%; background:linear-gradient(180deg, #fff3c9 0%, #ffb0c8 55%, #ff6fa8 100%);
+    box-shadow:0 0 120px 30px rgba(255,140,190,.55);
+    -webkit-mask:repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px) bottom / 100% 42% no-repeat, linear-gradient(#000,#000) top / 100% 58% no-repeat;
+            mask:repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px) bottom / 100% 42% no-repeat, linear-gradient(#000,#000) top / 100% 58% no-repeat;
+  }
+  .hills { position:absolute; left:0; right:0; bottom:0; height:28%; }
+  .hills svg { width:100%; height:100%; display:block; }
+  .grain { position:absolute; inset:0; opacity:.18; mix-blend-mode:overlay; pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+  .vhs { position:absolute; top:118px; left:20px; right:20px; display:flex; justify-content:space-between; font-family:'Rubik'; font-weight:700; font-size:15px; letter-spacing:.08em; text-shadow:2px 0 rgba(255,0,90,.6), -2px 0 rgba(0,200,255,.5); z-index:2; }
+  .vhs .rec::before { content:"●"; color:#ff2d55; margin-right:8px; animation:blink 1.2s steps(2) infinite; }
+  @keyframes blink { 50% { opacity:0; } }
+
+  .hero-inner { position:relative; z-index:3; width:100%; padding:150px 0 120px; text-align:center; }
+  .hero .kicker { font-size:30px; color:#fff1f7; transform:rotate(-3deg); display:inline-block; margin-bottom:6px; }
+  .hero h1 { font-size:clamp(48px, 15vw, 196px); margin:0; text-shadow:0 6px 0 rgba(90,20,90,.35); }
+  .hero h1 em { font-style:normal; color:var(--ink); background:var(--white); padding:0 .12em; border-radius:.08em; display:inline-block; transform:rotate(-2deg); }
+  .hero .sub { font-size:clamp(17px, 2.2vw, 22px); max-width:620px; margin:22px auto 0; color:#fff6fa; text-shadow:0 2px 14px rgba(70,15,80,.75), 0 1px 2px rgba(70,15,80,.6); }
+  .hero .kicker { text-shadow:0 2px 12px rgba(70,15,80,.6); }
+
+  .next {
+    margin:34px auto 0; max-width:700px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.35);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-radius:22px; padding:20px 22px;
+    display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; text-align:left;
+  }
+  .next .city { font-family:'Unbounded'; font-weight:900; font-size:30px; line-height:1; }
+  .next .meta { font-size:14px; opacity:.92; margin-top:6px; }
+  .count { display:flex; gap:10px; margin-top:14px; }
+  .count div { background:rgba(26,11,31,.35); border-radius:12px; padding:8px 10px; min-width:62px; text-align:center; }
+  .count b { display:block; font-family:'Unbounded'; font-size:22px; line-height:1.1; }
+  .count small { font-size:11px; text-transform:uppercase; letter-spacing:.1em; opacity:.85; }
+
+  .btn {
+    display:inline-flex; align-items:center; gap:10px; background:var(--white); color:var(--ink); text-decoration:none;
+    font-family:'Unbounded'; font-weight:700; font-size:15px; padding:16px 22px; border-radius:999px;
+    box-shadow:0 6px 0 var(--ink); transition:transform .12s, box-shadow .12s; border:2px solid var(--ink); cursor:pointer;
+  }
+  .btn:hover { transform:translateY(2px); box-shadow:0 4px 0 var(--ink); }
+  .btn:active { transform:translateY(6px); box-shadow:0 0 0 var(--ink); }
+  .btn.pink { background:var(--pink); color:var(--white); }
+  .btn small { font-family:'Rubik'; font-weight:500; font-size:12px; opacity:.75; }
+
+  /* marquee */
+  .marquee { background:var(--ink); color:var(--pink2); overflow:hidden; white-space:nowrap; border-block:2px solid var(--ink); }
+  .marquee .track { display:inline-flex; animation:mq 22s linear infinite; padding:14px 0; font-family:'Unbounded'; font-weight:700; font-size:18px; }
+  .marquee span { padding:0 22px; }
+  @keyframes mq { to { transform:translateX(-50%); } }
+
+  section { padding:96px 0; }
+  .eyebrow { font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--pink); }
+  h2 { font-family:'Unbounded'; font-weight:900; font-size:clamp(34px, 5vw, 58px); line-height:1; margin:10px 0 18px; letter-spacing:-.02em; }
+  .lead { font-size:18px; max-width:640px; color:rgba(26,11,31,.75); margin:0; }
+
+  /* tickets */
+  .waves { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-top:42px; }
+  .wave { position:relative; border:2px solid var(--ink); border-radius:20px; padding:22px 20px 20px; background:var(--white); overflow:hidden; }
+  .wave .n { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; opacity:.6; }
+  .wave .p { font-family:'Unbounded'; font-weight:900; font-size:38px; margin:10px 0 2px; }
+  .wave .p small { font-size:16px; }
+  .wave .s { font-size:14px; opacity:.7; }
+  .wave.sold { background:#f3e7ee; color:rgba(26,11,31,.45); }
+  .wave.sold .p { text-decoration:line-through; text-decoration-thickness:3px; }
+  .wave.sold::after {
+    content:"SOLD OUT"; position:absolute; right:-6px; top:18px; transform:rotate(12deg);
+    font-family:'Unbounded'; font-weight:900; font-size:14px; color:var(--pink); border:3px solid var(--pink);
+    padding:4px 10px; border-radius:8px; background:rgba(255,255,255,.7);
+  }
+  .wave.now { background:var(--pink); color:var(--white); box-shadow:0 8px 0 var(--ink); transform:translateY(-6px); }
+  .wave.now .n { opacity:.9; }
+  .wave.now .tag { position:absolute; right:14px; top:14px; background:var(--ink); color:var(--white); font-size:11px; font-weight:700; letter-spacing:.1em; padding:5px 9px; border-radius:999px; text-transform:uppercase; }
+  .progress { margin-top:14px; height:10px; border-radius:999px; background:rgba(255,255,255,.35); overflow:hidden; }
+  .progress i { display:block; height:100%; width:68%; background:var(--white); border-radius:999px; }
+  .tickets-cta { margin-top:40px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+  .tickets-cta p { margin:0; font-size:14px; color:rgba(26,11,31,.65); max-width:420px; }
+
+  /* about */
+  .about { background:var(--ink); color:var(--cream); }
+  .about .eyebrow { color:var(--pink2); }
+  .about .lead { color:rgba(255,244,248,.75); }
+  .feat { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-top:42px; }
+  .feat div { border:1px solid rgba(255,244,248,.18); border-radius:20px; padding:22px; }
+  .feat .ico { font-size:30px; }
+  .feat h3 { font-family:'Unbounded'; font-size:17px; margin:12px 0 6px; }
+  .feat p { margin:0; font-size:14px; color:rgba(255,244,248,.7); }
+  .stats { display:flex; flex-wrap:wrap; gap:42px; margin-top:54px; border-top:1px solid rgba(255,244,248,.18); padding-top:30px; }
+  .stats b { display:block; font-family:'Unbounded'; font-weight:900; font-size:42px; color:var(--pink2); line-height:1; }
+  .stats span { font-size:14px; color:rgba(255,244,248,.7); }
+
+  /* bracelets */
+  .bands { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-top:42px; }
+  .band { border-radius:24px; padding:26px; border:2px solid var(--ink); background:var(--white); }
+  .band .strap { height:34px; border-radius:999px; border:2px solid var(--ink); position:relative; margin-bottom:22px; }
+  .band .strap::after { content:""; position:absolute; right:18px; top:50%; width:14px; height:14px; border-radius:50%; background:var(--white); border:2px solid var(--ink); transform:translateY(-50%); }
+  .band h3 { font-family:'Unbounded'; font-size:22px; margin:0 0 4px; }
+  .band p { margin:0; color:rgba(26,11,31,.7); }
+  .rules { margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .rules div { background:#ffe3ef; border-radius:20px; padding:22px; }
+  .rules h3 { font-family:'Unbounded'; font-size:17px; margin:0 0 8px; }
+  .rules p { margin:0; font-size:15px; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .chips span { background:var(--white); border:1.5px solid var(--ink); border-radius:999px; padding:5px 12px; font-size:13px; font-weight:500; transform:rotate(var(--r, 0deg)); }
+
+  /* archive */
+  .archive { background:linear-gradient(180deg, var(--cream), #ffe3ef); }
+  .events { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-top:42px; }
+  .event { border-radius:24px; overflow:hidden; border:2px solid var(--ink); background:var(--white); }
+  .event .ph { aspect-ratio:4/3; position:relative; display:flex; align-items:flex-end; padding:16px; color:var(--white); }
+  .event .ph b { font-family:'Unbounded'; font-weight:900; font-size:30px; line-height:1; text-shadow:0 3px 0 rgba(0,0,0,.2); }
+  .event .stamp { position:absolute; top:16px; right:16px; transform:rotate(8deg); background:var(--white); color:var(--pink); font-family:'Unbounded'; font-weight:900; font-size:13px; padding:5px 10px; border-radius:8px; border:2.5px solid var(--pink); }
+  .event .meta { padding:16px 18px; display:flex; justify-content:space-between; font-size:14px; }
+  .event .meta a { font-weight:700; text-decoration:none; color:var(--pink); }
+
+  /* merch */
+  .merch { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-top:42px; }
+  .item { border:2px solid var(--ink); border-radius:22px; padding:16px; background:var(--white); }
+  .item .art { aspect-ratio:1; border-radius:14px; display:grid; place-items:center; font-family:'Unbounded'; font-weight:900; font-size:22px; color:var(--white); text-align:center; line-height:1.05; padding:12px; }
+  .item h3 { font-family:'Unbounded'; font-size:15px; margin:14px 0 2px; }
+  .item .price { font-weight:700; color:var(--pink); }
+  .item small { display:block; font-size:12px; opacity:.6; margin-top:2px; }
+
+  /* vote */
+  .vote { background:var(--pink); color:var(--white); border-block:2px solid var(--ink); }
+  .vote .eyebrow { color:var(--ink); }
+  .vote .lead { color:rgba(255,255,255,.9); }
+  .cities { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+  .cities button {
+    font:inherit; font-family:'Unbounded'; font-weight:700; font-size:15px; padding:12px 18px; border-radius:999px;
+    border:2px solid var(--ink); background:var(--white); color:var(--ink); cursor:pointer; box-shadow:0 4px 0 var(--ink);
+  }
+  .cities button[aria-pressed="true"] { background:var(--ink); color:var(--white); }
+  .vote .thanks { margin-top:18px; font-size:24px; min-height:34px; }
+
+  /* faq */
+  .faq { max-width:820px; margin-top:34px; }
+  details { border-bottom:2px solid var(--line); padding:18px 0; }
+  summary { cursor:pointer; font-family:'Unbounded'; font-weight:700; font-size:17px; list-style:none; display:flex; justify-content:space-between; gap:16px; }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:"+"; font-size:24px; line-height:1; color:var(--pink); transition:transform .2s; }
+  details[open] summary::after { transform:rotate(45deg); }
+  details p { margin:12px 0 0; color:rgba(26,11,31,.75); max-width:680px; }
+
+  footer { background:var(--ink); color:var(--cream); padding:56px 0 36px; }
+  .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; }
+  .foot .big { font-family:'Unbounded'; font-weight:900; font-size:clamp(40px, 7vw, 80px); line-height:.95; }
+  .foot .big span { color:var(--pink2); }
+  .links { display:flex; flex-direction:column; gap:10px; font-size:15px; }
+  .links a { text-decoration:none; opacity:.85; }
+  .disclaimer { margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,244,248,.16); font-size:13px; color:rgba(255,244,248,.6); display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; }
+
+  .toast { position:fixed; left:50%; bottom:22px; transform:translate(-50%, calc(100% + 40px)); background:var(--ink); color:var(--cream); padding:12px 18px; border-radius:14px; font-size:14px; z-index:60; transition:transform .25s; max-width:calc(100% - 32px); text-align:center; }
+  .toast.show { transform:translate(-50%, 0); }
+
+  @media (max-width:900px) {
+    nav ul { display:none; }
+    .waves, .feat, .merch { grid-template-columns:1fr 1fr; }
+    .events, .bands { grid-template-columns:1fr; }
+    .rules { grid-template-columns:1fr; }
+    section { padding:72px 0; }
+  }
+  @media (max-width:560px) {
+    .next { grid-template-columns:1fr; }
+    .next .btn { justify-content:center; }
+    .waves { grid-template-columns:1fr 1fr; gap:12px; }
+    .wave .p { font-size:30px; }
+    .wave { padding:18px 16px 16px; }
+    .wave.now .tag { position:static; display:inline-block; margin-bottom:10px; }
+    .wave.sold::after { position:static; display:inline-block; margin-top:10px; transform:rotate(-4deg); font-size:11px; padding:3px 8px; }
+    .merch { grid-template-columns:1fr 1fr; gap:12px; }
+    .vhs { font-size:12px; top:112px; }
+    .count div { min-width:0; flex:1; }
+    .stats { gap:28px; }
+  }
+  @media (prefers-reduced-motion:reduce) { .marquee .track, .vhs .rec::before { animation:none; } }
+</style>
+</head>
+<body>
+
+<div class="concept"><b>Концепт</b> · неофіційний сайт · демо для портфоліо дизайнера</div>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">ПМ<span>Fest</span></a>
+  <ul>
+    <li><a href="#tickets">Квитки</a></li>
+    <li><a href="#about">Про фест</a></li>
+    <li><a href="#rules">Браслети</a></li>
+    <li><a href="#archive">Архів</a></li>
+    <li><a href="#merch">Мерч</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="sun"></div>
+  <div class="hills">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 170 C 180 110, 320 200, 520 150 S 860 90, 1040 150 S 1320 120, 1440 140 L1440 300 L0 300 Z" fill="#7a2c78" opacity=".75"/>
+      <path d="M0 220 C 220 170, 420 250, 700 205 S 1160 170, 1440 215 L1440 300 L0 300 Z" fill="#3b1450"/>
+      <path d="M0 262 C 300 240, 600 285, 900 258 S 1300 250, 1440 262 L1440 300 L0 300 Z" fill="#1a0b1f"/>
+    </svg>
+  </div>
+  <div class="grain"></div>
+  <div class="vhs"><span class="rec">REC</span><span>PLAY ▶ 2K17</span></div>
+
+  <div class="hero-inner wrap">
+    <div class="kicker hand">повертаємося у той самий 2k17 ♡</div>
+    <h1 class="display">ПМ<em>Fest</em></h1>
+    <p class="sub">Вечірки під улюблені треки Пошлої Моллі в живому виконанні. Рожеві заходи сонця, конверси, скінні й браслетики для знайомств.</p>
+
+    <div class="next">
+      <div>
+        <div class="city">Харків · 05.12</div>
+        <div class="meta">Secret Place · 18:00–22:00 · адресу отримають власники квитків</div>
+        <div class="count" id="count" aria-label="Зворотний відлік до вечірки">
+          <div><b data-u="d">00</b><small>днів</small></div>
+          <div><b data-u="h">00</b><small>год</small></div>
+          <div><b data-u="m">00</b><small>хв</small></div>
+          <div><b data-u="s">00</b><small>сек</small></div>
+        </div>
+      </div>
+      <a class="btn pink demo" href="#tickets">Купити квиток <small>600 ₴</small></a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<section id="tickets">
+  <div class="wrap">
+    <div class="eyebrow">Харків · Molly Homeland</div>
+    <h2>Квитки хвилями</h2>
+    <p class="lead">Що раніше купуєш — то дешевше. Early Birds розлетілися менш ніж за хвилину, першу хвилю розкупили за 5 хвилин.</p>
+
+    <div class="waves">
+      <div class="wave sold"><div class="n">Early Birds</div><div class="p">450 <small>₴</small></div><div class="s">розкупили за &lt;1 хв</div></div>
+      <div class="wave sold"><div class="n">Перша хвиля</div><div class="p">550 <small>₴</small></div><div class="s">100+ квитків за 5 хв</div></div>
+      <div class="wave now"><span class="tag">Зараз</span><div class="n">Друга хвиля</div><div class="p">600 <small>₴</small></div><div class="s">залишилось небагато</div><div class="progress"><i></i></div></div>
+      <div class="wave"><div class="n">Третя хвиля</div><div class="p">700 <small>₴</small></div><div class="s">після другої хвилі</div></div>
+    </div>
+
+    <div class="tickets-cta">
+      <a class="btn pink demo" href="#">Купити квиток у боті →</a>
+      <p>Після солд-ауту квитків не буде ні в боті, ні на вході. Не купуйте з рук — почастішали випадки шахрайства.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="eyebrow">Що на тебе чекає</div>
+    <h2>Той самий безтурботний 2k17</h2>
+    <p class="lead">Кавери на пісні Пошлої Моллі від талановитих виконавців, під які можна відірватися на повну. Частина прибутку йде на підтримку ЗСУ 💙💛</p>
+
+    <div class="feat">
+      <div><div class="ico">🎸</div><h3>Живий звук</h3><p>Хіти ПМ у живому виконанні — від першого до останнього треку.</p></div>
+      <div><div class="ico">💗</div><h3>Браслетики</h3><p>Обираєш колір — і одразу зрозуміло, хто шукає компанію на вечір.</p></div>
+      <div><div class="ico">🥂</div><h3>Бар</h3><p>Класні напої для гостей 18+. Візьми паспорт або «Дію».</p></div>
+      <div><div class="ico">📸</div><h3>Фотограф</h3><p>Професійні фото з вечірки — шукай себе й друзів після фесту.</p></div>
+    </div>
+
+    <div class="stats">
+      <div><b>6000+</b><span>підписників у Telegram</span></div>
+      <div><b>1500+</b><span>фанатів у чаті</span></div>
+      <div><b>SOLD OUT</b><span>Дніпро, 24.10</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <div class="eyebrow">Браслетики для знайомств</div>
+    <h2>Обери свій колір</h2>
+    <p class="lead">Браслети видають після перевірки квитків — визначся заздалегідь, щоб не затримувати чергу.</p>
+
+    <div class="bands">
+      <div class="band"><div class="strap" style="background:#fff"></div><h3>Білий</h3><p>Не знайомлюся. Прийшов(-ла) по музику та атмосферу.</p></div>
+      <div class="band"><div class="strap" style="background:#7ee08a"></div><h3>Зелений</h3><p>Шукаю друзів. Підходь, поговоримо про 2k17.</p></div>
+      <div class="band"><div class="strap" style="background:#ff8fc0"></div><h3>Рожевий</h3><p>Шукаю стосунки. Може, саме сьогодні?</p></div>
+    </div>
+
+    <div class="rules">
+      <div>
+        <h3>Дрес-код 2k17</h3>
+        <p>Не обовʼязковий, але вкрай бажаний.</p>
+        <div class="chips"><span style="--r:-3deg">трешери</span><span style="--r:2deg">конверси</span><span style="--r:-1deg">скінні</span><span style="--r:3deg">атрибутика епохи</span></div>
+      </div>
+      <div>
+        <h3>На вході</h3>
+        <p>Підготуй квиток і паспорт або «Дію». Гостям 18+ наклеять додатковий браслет для швидкого доступу до бару. Сувеніри продаються з 20:00.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="archive" id="archive">
+  <div class="wrap">
+    <div class="eyebrow">Ми вже були тут</div>
+    <h2>Архів вечірок</h2>
+    <p class="lead">Кожен ПМFest — це новий рекорд швидкості продажів. Дивись фото й шукай себе.</p>
+
+    <div class="events">
+      <div class="event">
+        <div class="ph" style="background:linear-gradient(160deg,#6b2a8c,#ff5fa2 60%,#ffb38a)"><span class="stamp">SOLD OUT</span><b>Дніпро<br>24.10</b></div>
+        <div class="meta"><span>Повернення до Дніпра</span><a class="demo" href="#">Фото →</a></div>
+      </div>
+      <div class="event">
+        <div class="ph" style="background:linear-gradient(160deg,#2b0f4a,#b48cff 55%,#ff9cc7)"><b>Дніпро<br>18.07</b></div>
+        <div class="meta"><span>Перший фест у Дніпрі</span><a class="demo" href="#">Фото →</a></div>
+      </div>
+      <div class="event">
+        <div class="ph" style="background:linear-gradient(160deg,#ff7f8f,#ffb38a 55%,#ffd9a8)"><b>Одеса</b></div>
+        <div class="meta"><span>Фест біля моря</span><a class="demo" href="#">Фото →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="merch">
+  <div class="wrap">
+    <div class="eyebrow">Сувеніри</div>
+    <h2>Забери 2k17 додому</h2>
+    <p class="lead">Купуй на вході на вечірці або замовляй онлайн у партнерів.</p>
+
+    <div class="merch">
+      <div class="item"><div class="art" style="background:linear-gradient(135deg,#ff5fa2,#b48cff)">♡ ПМ ♡</div><h3>Наклейки</h3><div class="price">80 ₴</div></div>
+      <div class="item"><div class="art" style="background:linear-gradient(135deg,#6b2a8c,#ff7f8f)">🔑<br>2K17</div><h3>Брелки</h3><div class="price">120 ₴</div></div>
+      <div class="item"><div class="art" style="background:linear-gradient(135deg,#ffb38a,#ff5fa2)">ПЛАКАТ</div><h3>Плакат</h3><div class="price">150 ₴</div><small>або в подарунок до 3 брелків</small></div>
+      <div class="item"><div class="art" style="background:linear-gradient(135deg,#2b0f4a,#ff9cc7)">МІНІ<br>ПОСТЕР</div><h3>Акриловий постер</h3><div class="price">350 ₴</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="vote">
+  <div class="wrap">
+    <div class="eyebrow">Куди далі?</div>
+    <h2>Привези ПМFest у своє місто</h2>
+    <p class="lead">Голосуй за місто — туди, де нас чекають найбільше, ми приїдемо наступними.</p>
+    <div class="cities" id="cities">
+      <button type="button" aria-pressed="false">Київ</button>
+      <button type="button" aria-pressed="false">Львів</button>
+      <button type="button" aria-pressed="false">Одеса</button>
+      <button type="button" aria-pressed="false">Запоріжжя</button>
+      <button type="button" aria-pressed="false">Вінниця</button>
+      <button type="button" aria-pressed="false">Полтава</button>
+      <button type="button" aria-pressed="false">Інше місто</button>
+    </div>
+    <div class="thanks hand" id="thanks"></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Питання</div>
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details><summary>Де саме відбудеться вечірка?</summary><p>Локація — Secret Place. Точну адресу власники квитків отримають незадовго до вечірки.</p></details>
+      <details><summary>Чи можна купити квиток на вході?</summary><p>Лише якщо квитки ще залишаться. Після солд-ауту купити квиток у боті чи на вході буде неможливо.</p></details>
+      <details><summary>Який вік?</summary><p>Вхід вільний за квитком, а доступ до бару — лише 18+ за паспортом або в «Дії».</p></details>
+      <details><summary>Дрес-код обовʼязковий?</summary><p>Ні, але дуже бажаний: трешери, конверси, скінні й усе, що нагадує 2017-й.</p></details>
+      <details><summary>Чи можна купити квиток з рук?</summary><p>На свій страх і ризик — останнім часом почастішали випадки шахрайства. Найнадійніше — через офіційного бота.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="big">ПМ<span>Fest</span><br>до зустрічі ♡</div>
+      <div class="links">
+        <a class="demo" href="#">Telegram-канал</a>
+        <a class="demo" href="#">Чат фанатів</a>
+        <a class="demo" href="#">Instagram</a>
+        <a class="demo" href="#">Бот із квитками</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <span>Концепт сайту, створений дизайнером для портфоліо. Не є офіційним сайтом ПМFest.</span>
+      <span>Кнопки та посилання неактивні.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status">Це демо-концепт — кнопки поки неактивні ♡</div>
+
+<script>
+(() => {
+  // marquee
+  const words = ['ХАРКІВ · 05.12', '♡', 'SECRET PLACE', '♡', 'ДРУГА ХВИЛЯ — 600 ₴', '♡', 'ПОВЕРНЕННЯ У 2K17', '♡', 'ДНІПРО — SOLD OUT', '♡'];
+  const mq = document.getElementById('mq');
+  for (let k = 0; k < 2; k++) words.forEach(w => { const s = document.createElement('span'); s.textContent = w; mq.appendChild(s); });
+
+  // countdown to 05.12, 18:00 Kyiv time
+  const target = new Date('2026-12-05T18:00:00+02:00').getTime();
+  const cells = {}; document.querySelectorAll('#count b').forEach(b => cells[b.dataset.u] = b);
+  const pad = n => String(n).padStart(2, '0');
+  function tick() {
+    let d = Math.max(0, target - Date.now()) / 1000;
+    const days = Math.floor(d / 86400); d -= days * 86400;
+    const h = Math.floor(d / 3600); d -= h * 3600;
+    const m = Math.floor(d / 60); const s = Math.floor(d - m * 60);
+    cells.d.textContent = pad(days); cells.h.textContent = pad(h); cells.m.textContent = pad(m); cells.s.textContent = pad(s);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // demo links show a toast instead of navigating
+  const toast = document.getElementById('toast'); let tt;
+  document.querySelectorAll('a.demo').forEach(a => {
+    if (a.getAttribute('href') !== '#') return;
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('show'), 2200);
+    });
+  });
+
+  // city vote (local only)
+  const thanks = document.getElementById('thanks');
+  document.querySelectorAll('#cities button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#cities button').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', 'true');
+    thanks.textContent = `Дякуємо! Голос за «${b.textContent}» враховано ♡`;
+  }));
+})();
+</script>
+</body>
+</html>
